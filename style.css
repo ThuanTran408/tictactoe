@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Edu VIC WA NT Beginner', cursive;
+}
+
+body {
+    background-color: rgb(131, 206, 206);
+    margin: 100px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+.gameBoard {
+    margin: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+}
+
+.box {
+    border: 1px solid white;
+    display: flex;
+    width: 75px;
+    height: 75px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.box:first-child,
+.box:nth-child(2),
+.box:nth-child(3) {
+    border-top: none;
+}
+
+.box:nth-child(3n + 1) {
+    border-left: none;
+}
+
+.box:nth-child(3n + 3) {
+    border-right: none;
+}
+
+.box:last-child,
+.box:nth-child(8),
+.box:nth-child(7) {
+    border-bottom: none;
+}
+
+.bottomLine {
+    text-align: center;
+    margin: 50px;
+}
+
+.resetButton {
+    margin: 25px;
+}
