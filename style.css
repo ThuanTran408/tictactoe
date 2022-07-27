@@ -15,9 +15,10 @@ body {
 h1 {
     text-align: center;
     color: white;
+    box-shadow: 1px 1px 5px 1px black;
 }
 
-.gameBoard {
+#gameBoard {
     margin: 50px;
     display: grid;
     grid-template-columns: repeat(3, auto);
@@ -32,6 +33,7 @@ h1 {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    font-size: 50px;
 }
 
 .box:first-child,
@@ -61,4 +63,10 @@ h1 {
 
 .resetButton {
     margin: 25px;
+    padding: 10px 10px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 5px 1px black;
+    font-size: 20px;
+    cursor: pointer;
 }
+
