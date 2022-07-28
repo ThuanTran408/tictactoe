@@ -2,7 +2,7 @@ const displayMessage = document.querySelector('#displayMessage');
 
 const boxes = document.querySelectorAll('.box');
 
-const reset = document.querySelector('resetButton');
+const reset = document.querySelector('#resetButton');
 
 const winningConditions = 
 [
@@ -28,8 +28,9 @@ function startGame(){
     displayMessage.textContent = `${currentPlayer}'s turn!`;
     playing = true;
 }
+
 function boxClicked(){
-    const boxIndex = this.getAttribute("boxIndex");
+    const boxIndex = this.getAttribute("id");
 
     if(gameBoard[boxIndex] != "" || !playing){
         return;
@@ -38,19 +39,30 @@ function boxClicked(){
     updateBox(this, boxIndex);
     checkWin();
 }
+
 function updateBox(box, index){
     gameBoard[index] = currentPlayer;
     box.textContent = currentPlayer;
 }
 
 function switchPlayer(){
-
 }
 
 function checkWin(){
-
 }
 
+
 function resetGame(){
+    boxes.forEach(box => {
+        return ""
+    });
+
+    for(let i=0; i<gameBoard.length; i++){
+        gameBoard[i] = ""
+    }
     
+    displayMessage.textContent = `${currentPlayer}'s turn!`;
+
+
+
 }
