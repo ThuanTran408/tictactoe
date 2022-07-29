@@ -13,7 +13,7 @@ const winningConditions =
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    [6, 4, 2],
+    [2, 4, 6],
 ];
 
 let gameBoard = ["", "", "", "", "", "", "", "", ""];
@@ -25,7 +25,7 @@ startGame();
 function startGame(){
     boxes.forEach(box => box.addEventListener("click", boxClicked));
     reset.addEventListener("click", resetGame);
-    displayMessage.textContent = `${currentPlayer}'s turn!`;
+    displayMessage.textContent = `${currentPlayer}'s Turn!`;
     playing = true;
 }
 
@@ -46,23 +46,50 @@ function updateBox(box, index){
 }
 
 function switchPlayer(){
+    currentPlayer = (currentPlayer === "O") ? "X" : "O";
+    displayMessage.textContent = `${currentPlayer}'s Turn!`;
 }
 
 function checkWin(){
-}
+    let won = false;
 
+    for(let i = 0; i < winningConditions.length; i++){
+        const condition = winningConditions[i];
+        const boxA = gameBoard[condition[0]];
+        const boxB = gameBoard[condition[1]];
+        const boxC = gameBoard[condition[2]];
+
+        if(boxA === "" || boxB === "" || boxC === ""){
+            continue;
+        }
+        if(boxA == boxB && boxB == boxC){
+            won = true;
+            break;
+        }
+    }
+        if(won){
+            displayMessage.textContent = `${currentPlayer} Wins!`;
+            playing = false;
+        }
+        else if(!gameBoard.includes("")){
+            displayMessage.textContent = `Draw!`;
+            playing = false;
+        }
+        else{
+            switchPlayer();
+        }
+}
 
 function resetGame(){
+    currentPlayer = "O";
+    gameBoard = ["", "", "", "", "", "", "", "", ""];
     boxes.forEach(box => {
-        return ""
+        box.innerHTML = ""
     });
-
-    for(let i=0; i<gameBoard.length; i++){
-        gameBoard[i] = ""
-    }
-    
-    displayMessage.textContent = `${currentPlayer}'s turn!`;
-
-
-
+    displayMessage.textContent = `${currentPlayer}'s Turn!`;
+    playing = true;
 }
+
+
+
+
