@@ -4,6 +4,18 @@ const boxes = document.querySelectorAll('.box');
 
 const reset = document.querySelector('#resetButton');
 
+const playerO = document.getElementById("playerO");
+
+playerOsubmit.addEventListener("click", function(){
+    playerOname.innerHTML = playerO.value + " is Player O"
+})
+
+const playerX = document.getElementById("playerX");
+
+playerXsubmit.addEventListener("click", function(){
+    playerXname.textContent = playerX.value + " is Player X" 
+})
+
 const winningConditions = 
 [
     [0, 1, 2],
