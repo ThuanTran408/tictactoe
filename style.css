@@ -79,7 +79,10 @@ h1 {
 
 .displayMessage {
     font-size: 25px;
-    color: white;
+    color: black;
+    box-shadow: 1px 1px 5px 1px black;
+    background-color: white;
+
 }
 
 .resetButton {
